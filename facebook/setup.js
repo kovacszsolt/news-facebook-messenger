@@ -1,4 +1,4 @@
-const config = require('./common/config');
+const config = require('../common/config');
 const request = require('request');
 setupGetStartedButton = (res, page_access_token) => {
     var messageData = {
