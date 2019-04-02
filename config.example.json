@@ -5,5 +5,10 @@
   "frontend_url": "Frontend site URL",
   "backend_url": "Backend site URL",
   "image_url": "Image files path",
-  "facebook_verify_code": "FACEBOOK API CODE"
+  "facebook_verify_code": "FACEBOOK API CODE",
+  "getstarted_text": "Fist Message Text",
+  "help_text": "Help command text",
+  "noresult_text": "No result message",
+  "persistent_menu_site_title": "Goto Web Site text",
+  "greeting_text": "Greeting Text"
 }

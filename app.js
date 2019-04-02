@@ -61,7 +61,7 @@ mongoClient.connect(function (err, client) {
         var payload = event.postback.payload;
         switch (payload) {
             case 'getstarted':
-                api.sendTextMessage(senderID, " Hi,I'm a IT News Search Bot", FACEBOOK_VERIFY_CODE);
+                api.sendTextMessage(senderID, config.getstarted_text, FACEBOOK_VERIFY_CODE);
                 break;
             default :
                 //api.sendTextMessage(senderID, "Postback: " + payload, FACEBOOK_VERIFY_CODE);
@@ -76,8 +76,6 @@ mongoClient.connect(function (err, client) {
         UsersCollection.find({senderid: senderID}).toArray(function (err, records) {
             //console.log('records', records);
         });
-
-        console.log('receivedMessage', senderID);
         var message = event.message;
         var messageText = message.text;
         if (messageText) {
@@ -85,8 +83,7 @@ mongoClient.connect(function (err, client) {
                 case 'Postback':
                     break;
                 case 'help' :
-                    var msg = "Just type in something and I'll tell you a few news.";
-                    api.sendTextMessage(senderID, msg, FACEBOOK_VERIFY_CODE);
+                    api.sendTextMessage(senderID, config.help_text, FACEBOOK_VERIFY_CODE);
                     break;
                 default :
                     SearchCollection.insert(
@@ -109,7 +106,7 @@ mongoClient.connect(function (err, client) {
             (error, response, body) => {
                 const records = JSON.parse(body).splice(0, 10);
                 if (records.length === 0) {
-                    api.sendTextMessage(senderID, 'Sorry No Result: ' + searchText, FACEBOOK_VERIFY_CODE);
+                    api.sendTextMessage(senderID, config.noresult_text + searchText, FACEBOOK_VERIFY_CODE);
                 } else {
                     const items = [];
                     records.forEach((record) => {

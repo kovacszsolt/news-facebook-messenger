@@ -1,3 +1,4 @@
+const config = require('./common/config');
 const request = require('request');
 setupGetStartedButton = (res, page_access_token) => {
     var messageData = {
@@ -29,9 +30,9 @@ setupPersistentMenu = (res, page_access_token) => {
                     "composer_input_disabled": false,
                     "call_to_actions": [
                         {
-                            "title": "Goto Web Site",
+                            "title": config.persistent_menu_site_title,
                             "type": "web_url",
-                            "url": "https://itnews.cloud",
+                            "url": config.frontend_url,
                             "webview_height_ratio": "full"
                         }
                     ]
@@ -66,7 +67,7 @@ setupGreetingText = (res, page_access_token) => {
         "greeting": [
             {
                 "locale": "default",
-                "text": "IT NEWS CLOUD DEMO FACEBOOK MESSENGER BOT"
+                "text": config.greeting_text
             }
         ]
     };
