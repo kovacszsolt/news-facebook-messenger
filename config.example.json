@@ -1,0 +1,9 @@
+{
+  "port": "1400",
+  "mongo_server": "mongodb://host:port",
+  "mongo_database": "database",
+  "frontend_url": "Frontend site URL",
+  "backend_url": "Backend site URL",
+  "image_url": "Image files path",
+  "facebook_verify_code": "FACEBOOK API CODE"
+}
